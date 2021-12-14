@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+
+let playerSelection;
+let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
+
+
+function computerPlay(){
+  var items = ['rock', 'paper', 'scissors'];
+  return items[Math.floor(Math.random()*items.length)];
+  }
+  
+
+
+function playRound(playerSelection, computerSelection) {
+  playerSelection = prompt("Enter your choice: ").toLowerCase();
+  computerSelection = computerPlay();
+
+  
+  if (playerSelection === computerSelection){
+       console.log ("It's a tie.");
+  }
+  else if (playerSelection === 'rock' && computerSelection === 'paper') {
+      computerScore++;
+      console.log ("You Lose! Paper beats Rock");
+  }
+  else if(playerSelection === 'paper' && computerSelection === 'rock'){
+      playerScore++;
+      console.log ("You Win! Paper beats Rock");
+  }
+  else if(playerSelection === 'rock' && computerSelection === 'scissors'){
+      playerScore++;
+      console.log ("You Win! Rock beats Scissors");
+  }
+  else if(playerSelection === 'scissors' && computerSelection === 'rock'){
+      computerScore++;
+      console.log ("You Lose! Rock beats Scissors");
+  }
+  else if(playerSelection === 'paper' && computerSelection === 'scissors'){
+      computerScore++;
+      console.log ("You Lose! Scissors beats Paper");
+  }
+  else if(playerSelection === 'scissors' && computerSelection === 'paper'){
+      playerScore++;
+      console.log ("You Win! Scissors beats Paper");
+  }
+  else {
+    console.log ('Invalid input.');
+ }
+
+
+}
+
+
+
+function game(){
+    for (var i=0; i<5; i++){
+      playRound(playerSelection,computerSelection);
+    }
+    if(playerScore > computerScore){
+      console.log("You Win! " + playerScore + " out of 5 Games") 
+    }else {
+    console.log("Computer Wins! " + computerScore + " out of 5 Games") 
+    }
+  
+  }
+
+
+game();
+
+
+
+
+
+</script>
